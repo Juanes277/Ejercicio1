@@ -62,6 +62,9 @@ public class control extends HttpServlet {
 
         String n = request.getParameter("txt_nombres");
         String a = request.getParameter("txt_apellidos");
+        String t = request.getParameter("txt_telefono");
+        String co = request.getParameter("txt_correo");
+        
 
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -134,6 +137,10 @@ public class control extends HttpServlet {
 "            <h2>Nombres:  " +n+"</h2>\n" +
 "            <p></p>\n" +
 "            <h2>Apellidos:  " + a +"</h2>\n"+
+             "<p></p>\n"+
+             "<h2>Telefono:  "+ t +"</h2>\n"+
+             "<p></p>\n"+
+             "<h2>Correo:  "+ co +"</h2>\n"+
 "            </form>\n" +
 "    </div>\n" +
 "  </div>\n" +
