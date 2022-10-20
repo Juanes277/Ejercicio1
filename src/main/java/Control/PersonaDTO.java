@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.ejercicioprueba;
+package Control;
+
+import java.util.Objects;
 
 /**
  *
@@ -13,14 +15,14 @@ private String Nombre;
 private String Apellido;
 private String Correo;
 private int Telefono;
-private String Contraseña;
+private String Clave;
 
     public PersonaDTO(String Nombre, String Apellido, String Correo, int Telefono, String Contraseña) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Correo = Correo;
         this.Telefono = Telefono;
-        this.Contraseña = Contraseña;
+        this.Clave = Clave;
     }
 
     public PersonaDTO() {
@@ -43,7 +45,7 @@ private String Contraseña;
     }
 
     public String getContraseña() {
-        return Contraseña;
+        return Clave;
     }
 //SETS
     public void setNombre(String Nombre) {
@@ -63,7 +65,45 @@ private String Contraseña;
     }
 
     public void setContraseña(String Contraseña) {
-        this.Contraseña = Contraseña;
+        this.Clave = Contraseña;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode(this.Nombre);
+        hash = 11 * hash + Objects.hashCode(this.Apellido);
+        hash = 11 * hash + Objects.hashCode(this.Correo);
+        hash = 11 * hash + this.Telefono;
+        hash = 11 * hash + Objects.hashCode(this.Clave);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PersonaDTO other = (PersonaDTO) obj;
+        if (this.Telefono != other.Telefono) {
+            return false;
+        }
+        if (!Objects.equals(this.Nombre, other.Nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.Apellido, other.Apellido)) {
+            return false;
+        }
+        if (!Objects.equals(this.Correo, other.Correo)) {
+            return false;
+        }
+        return Objects.equals(this.Clave, other.Clave);
     }
 
 }
