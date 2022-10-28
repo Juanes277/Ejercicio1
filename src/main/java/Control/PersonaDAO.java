@@ -16,13 +16,13 @@ import java.util.List;
  */
 public class PersonaDAO {
     
-private static final String SQL_READALL = "SELECT * FROM tb_persona ";
-    private static final Conexion con = Conexion.getConexion();
+ private static final String SQL_READALL = "SELECT * FROM tb_persona ";
+    private static final Conexion con = new Conexion();
 
     public PersonaDAO() {
         con.conectar();
     }
-
+    
     public List<PersonaDTO> readAll(){
         List<PersonaDTO> lista = null;
         PreparedStatement ps;
@@ -33,10 +33,9 @@ private static final String SQL_READALL = "SELECT * FROM tb_persona ";
             while(rs.next()){
                 PersonaDTO obj = new PersonaDTO(
                     rs.getString("Nombre"),
-                    rs.getString("Apellido"),
-                    rs.getString("Correo"),
                     rs.getInt("Telefono"),
-                    rs.getString("Clave")
+                    rs.getString("Email"),
+                    rs.getString("Password")
                 );  lista.add(obj);
             }
         }catch(SQLException ex){

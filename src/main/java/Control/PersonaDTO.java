@@ -12,70 +12,68 @@ import java.util.Objects;
  */
 public class PersonaDTO {
 private String Nombre;
-private String Apellido;
-private String Correo;
-private int Telefono;
-private String Clave;
-
-    public PersonaDTO(String Nombre, String Apellido, String Correo, int Telefono, String Contraseña) {
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.Correo = Correo;
-        this.Telefono = Telefono;
-        this.Clave = Clave;
-    }
+    private int Telefono;
+    private String Email;
+    private String Password;
 
     public PersonaDTO() {
+        Nombre = "";
+        Telefono = 0;
+        Email = "";
+        Password = "";
     }
-//GETS
+
+    public PersonaDTO(String Nombre, int Telefono, String Email, String Password) {
+        this.Nombre = Nombre;
+        this.Telefono = Telefono;
+        this.Email = Email;
+        this.Password = Password;
+    }
+
     public String getNombre() {
         return Nombre;
     }
 
-    public String getApellido() {
-        return Apellido;
-    }
-
-    public String getCorreo() {
-        return Correo;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public int getTelefono() {
         return Telefono;
     }
 
-    public String getContraseña() {
-        return Clave;
-    }
-//SETS
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
-    }
-
-    public void setCorreo(String Correo) {
-        this.Correo = Correo;
-    }
-
     public void setTelefono(int Telefono) {
         this.Telefono = Telefono;
     }
 
-    public void setContraseña(String Contraseña) {
-        this.Clave = Contraseña;
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+    
+    @Override
+    public String toString() {
+        return "personaDTO{" + "Nombre=" + Nombre + ", Telefono=" + Telefono + ", Email=" + Email + ", Password=" + Password + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + Objects.hashCode(this.Nombre);
-        hash = 11 * hash + Objects.hashCode(this.Apellido);
-        hash = 11 * hash + Objects.hashCode(this.Correo);
-        hash = 11 * hash + this.Telefono;
-        hash = 11 * hash + Objects.hashCode(this.Clave);
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.Nombre);
+        hash = 19 * hash + this.Telefono;
+        hash = 19 * hash + Objects.hashCode(this.Email);
+        hash = 19 * hash + Objects.hashCode(this.Password);
         return hash;
     }
 
@@ -97,13 +95,10 @@ private String Clave;
         if (!Objects.equals(this.Nombre, other.Nombre)) {
             return false;
         }
-        if (!Objects.equals(this.Apellido, other.Apellido)) {
+        if (!Objects.equals(this.Email, other.Email)) {
             return false;
         }
-        if (!Objects.equals(this.Correo, other.Correo)) {
-            return false;
-        }
-        return Objects.equals(this.Clave, other.Clave);
+        return Objects.equals(this.Password, other.Password);
     }
 
 }

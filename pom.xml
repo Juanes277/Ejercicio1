@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4.1208</version>
+            <version>42.4.2</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -28,7 +28,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+       <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -55,20 +55,22 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>2.6</version>
                 <executions>
-                   <execution>
+                    <execution>
                         <id>copy-dependencies</id>
                         <phase>package</phase>
-                    <goals><goal>copy</goal></goals>
-                    <configuration>
-                    <artifactItems>
-                    <artifactItem>
-                    <groupId>com.github.jsimone</groupId>
-                    <artifactId>webapp-runner-main</artifactId>
-                    <version>8.5.23.1</version>
-                    <destFileName>webapp-runner.jar</destFileName>
-                    </artifactItem>
-                    </artifactItems>
-                    </configuration>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner-main</artifactId>
+                                    <version>8.5.23.1</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
